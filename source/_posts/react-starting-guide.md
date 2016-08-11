@@ -1,8 +1,13 @@
 ---
 title: Simple React Starting Guide with material-ui
 date: 2016-05-27 16:20:24
-tags:
+tags: 
+- react
+- config
+updated: 2016-08-11 12:43:02
 ---
+**_update 2016-08-11 : _** Removing comments from JSON configuration files and adding them as separate comments in blog, aditionally, updated version of tools to the latest
+
 I've been struggling for hours on how to start a project in {% link React https://facebook.github.io/react/ %}, with the beautiful {% link material-ui http://www.material-ui.com/#/ %}. So I wanted to share a simple and fast way to get started. This guide was created using the explanations given in {% link survivejs https://survivejs.com %}, so if you have the time this is the ultimate tutorial guys I really recommend it.
 
 ## Dependencies
@@ -36,21 +41,13 @@ Just three basic configuration files are needed, one for npm (Nodejs package man
   "version": "1.0.0",
   "description": "App description",
   "main": "index.js",
-  //these are executed by running "npm run <script>"
   "scripts": {
-    //script to run webpack by npm
     "build": "webpack", 
-    //starts the webpack webserver
     "start": "webpack-dev-server --content-base build" 
   },
   "keywords": [],
   "author": "hugosama",
   "license": "ISC",
-  /**
-  * these dependencies are created either by adding them here or runnin npm 
-  * --save-dev or -D, the difference betweeen these and "dependencies" is that npm 
-  * does not install the dev-dependencies of the packages or any documentation
-  **/
   "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
@@ -64,9 +61,10 @@ Just three basic configuration files are needed, one for npm (Nodejs package man
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "material-ui": "^0.14.4",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "material-ui": "^0.15.3",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-tap-event-plugin": "^1.0.0"
   }
 }
 ```
@@ -129,6 +127,8 @@ module.exports =  {
                 test:/\.css$/,
                 loaders: ['style', 'css'],
                 // Include accepts either a path or an array of paths.
+                //IMPORTANT: Needs to require the explicit .css file on 
+                //module, something like require('main.css');
                 include: PATH.app
             },
             {
@@ -142,19 +142,43 @@ module.exports =  {
 ```
 
 ``` javascript .babelrc
-//these tells babel which presets are we using to compile our javascript
 {
   "presets": [
     "es2015",
     "react"
   ]
 }
-
 ```
 
 
 With these three configuration files we are all set to make an awesome app with {% link React https://facebook.github.io/react/ %} and {% link material-ui http://www.material-ui.com/#/ %}.
 
+### explanation of the configuration files parts
+```javascript package.json
+  //these are executed by running "npm run <script>"
+  "scripts": {
+    //script to run webpack by npm
+    "build": "webpack", 
+    //starts the webpack webserver
+    "start": "webpack-dev-server --content-base build" 
+  }
+ ...
+
+  /**
+  * these dependencies are created either by adding them here or runnin npm 
+  * --save-dev or -D, the difference betweeen these and "dependencies" is that npm 
+  * does not install the dev-dependencies of the packages or any documentation
+  **/
+  "devDependencies": {
+
+```
+
+```javascript .babelrc
+//these tells babel which presets are we using to compile our javascript
+{
+  "presets": [
+    ...
+```
 ## Coding the Actual Application
 
 The configuration we made previously expects the following scaffolding : 
@@ -189,15 +213,18 @@ And here is a hello world like code for react with material ui, this goes in the
 ``` javascript index.jsx 
 import React from 'react';
 import ReactDom from 'react-dom';
-import AppBar from 'material-ui/lib/app-bar';
+import AppBar from 'material-ui/AppBar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component {
     render() {
         return (   
-          <AppBar
-            title="Hello World"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-          />
+      <MuiThemeProvider>
+            <AppBar
+              title="Hello World"
+              iconClassNameRight="muidocs-icon-navigation-expand-more"
+            />
+      </MuiThemeProvider>
         );
     } 
 }

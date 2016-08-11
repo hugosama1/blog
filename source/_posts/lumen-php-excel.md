@@ -1,7 +1,10 @@
 ---
 title: How to configure Laravel Excel in Lumen
 date: 2016-07-11 14:47:11
-tags:
+tags: 
+- lumen 
+- excel 
+- laravel
 ---
 One of the best libraries to handle spreadsheet documents is {% link Laravel-Excel http://www.maatwebsite.nl/laravel-excel/docs %} , but it's laravel API makes it a burden to use on lumen due to some limitations on the laravel's little brother.
 
