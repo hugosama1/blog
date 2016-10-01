@@ -4,8 +4,8 @@
 
 # Site
 title: Hugo's Blog
-subtitle:
-description:
+subtitle: 
+description: I created this blog to share some programming and life ideas.
 author: Hugo Gomez
 language: default
 timezone:
