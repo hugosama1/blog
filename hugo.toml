@@ -97,3 +97,11 @@ target = "$1"
 unsafe = true
 [markup.highlight]
 style = 'base16-snazzy'
+
+
+[deployment]
+
+[[deployment.targets]]
+name = "hugosama"
+URL = "s3://hugosama-test-bucket/?region=us-east-1&profile=hugosama"
+

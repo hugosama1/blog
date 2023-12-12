@@ -1,7 +1,6 @@
 ---
 title: "Corazon Y Alma Libre"
 date: 2023-12-07T14:42:43-05:00
-draft: true
 ---
 
 Mi primera definición de amor comenzó a los 5 años, cuando vi a mi madre llorando desconsolada mientras mi padre salía reventando la puerta de la cochera con el carro, fue ahi donde comprendí lo que un engaño y ruptura de confianza podria causarle a tu ser mas querido. Asi pues, con esa tragedia sucediendo ante mis ojos, nació en mi un sentimiento de proteccíon, de no importa que, yo debía cuidar a mi progenitora y pequeña hermana.
